@@ -1,3 +1,3 @@
-# Buying Assistante
+# Buying Assistant
 
-Live Link: [Create React App](https://github.com/facebook/create-react-app).
+Live Link: [https://super-scone-58d58c.netlify.app/](https://super-scone-58d58c.netlify.app/)
