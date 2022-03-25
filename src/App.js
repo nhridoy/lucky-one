@@ -5,9 +5,11 @@ import Body from "./components/Body/Body";
 
 function App() {
   return (
-    <div className="container mx-auto p-5">
-      <Head />
-      <Body />
+    <div className="bg-gray-200 h-screen">
+      <div className="container mx-auto p-5">
+        <Head />
+        <Body />
+      </div>
     </div>
   );
 }

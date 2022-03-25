@@ -4,9 +4,13 @@ import Product from "../Product/Product";
 
 const Body = () => {
   return (
-    <div>
-      <Product />
-      <Cart />
+    <div className="grid grid-cols-5 gap-5 mt-5">
+      <div className="col-span-4">
+        <Product />
+      </div>
+      <div className="col-span-1">
+        <Cart />
+      </div>
     </div>
   );
 };
