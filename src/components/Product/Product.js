@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import Swal from "sweetalert2";
+
 const Product = ({ cart, setCart }) => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
@@ -14,7 +16,25 @@ const Product = ({ cart, setCart }) => {
   const handleAddToCart = (id) => {
     // Get Product from State
     const productInCart = products.find((p) => p.id === id);
-    setCart([...cart, productInCart]);
+    if (cart.length < 4) {
+      if (cart.find((p) => p.id === id)) {
+        Swal.fire({
+          title: "Product already in cart",
+          text: "You can only add 4 products to cart",
+          icon: "warning",
+          confirmButtonText: "OK",
+        });
+      } else {
+        setCart([...cart, productInCart]);
+      }
+    } else {
+      Swal.fire({
+        title: "Oops...",
+        text: "You can only select 4 products!",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    }
   };
 
   return (
