@@ -1,18 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Swal from "sweetalert2";
+import { addToLocalStorage } from "../../utilities/localStorage";
 
-const Product = ({ cart, setCart }) => {
-  const [products, setProducts] = useState([]);
-  useEffect(() => {
-    // Load Computer Products from API
-    fetch("data.json")
-      // Convert response to JSON
-      .then((response) => response.json())
-      // Set products state to JSON data
-      .then((data) => setProducts(data));
-  }, []);
-
+const Product = ({ cart, setCart, products }) => {
   const handleAddToCart = (id) => {
     // Get Product from State
     const productInCart = products.find((p) => p.id === id);
@@ -25,7 +16,10 @@ const Product = ({ cart, setCart }) => {
           confirmButtonText: "OK",
         });
       } else {
+        // Add Product to Cart
         setCart([...cart, productInCart]);
+        // Save Cart in LocalStorage
+        addToLocalStorage(id);
       }
     } else {
       Swal.fire({

@@ -1,6 +1,7 @@
 import React from "react";
 import { AiFillDelete } from "react-icons/ai";
 import Swal from "sweetalert2";
+import { removeFromLocalStorage } from "../../utilities/localStorage";
 
 const CartItem = ({ product, cart, setCart }) => {
   const handleRemoveFromCart = (id) => {
@@ -18,6 +19,7 @@ const CartItem = ({ product, cart, setCart }) => {
       .then((result) => {
         if (result.value) {
           const newCart = cart.filter((p) => p.id !== id);
+          removeFromLocalStorage(id);
           setCart(newCart);
           Swal.fire("Deleted!", "Your cart has been deleted.", "success");
         } else if (result.dismiss === Swal.DismissReason.cancel) {

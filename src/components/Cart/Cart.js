@@ -1,6 +1,7 @@
 import React from "react";
 import CartItem from "../CartItem/CartItem";
 import Swal from "sweetalert2";
+import { clearLocalStorage } from "../../utilities/localStorage";
 
 const Cart = ({ cart, setCart }) => {
   /* const total = cart.reduce((acc, item) => acc + item.price, 0);
@@ -53,6 +54,7 @@ const Cart = ({ cart, setCart }) => {
       }).then((result) => {
         if (result.value) {
           setCart([]);
+          clearLocalStorage();
           Swal.fire("Deleted!", "Your cart has been deleted.", "success");
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           Swal.fire("Cancelled", "Your cart is safe :)", "error");
