@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { AiOutlineShoppingCart } from "react-icons/ai";
 const Product = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
@@ -30,8 +30,8 @@ const Product = () => {
               </div>
               <h3 className="text-lg">{product.title}</h3>
               <p className="font-semibold my-5">$ {product.price}</p>
-              <button className="bg-gray-200 rounded-full px-3 py-1 text-sm font-bold absolute bottom-0">
-                Add to Cart
+              <button className="bg-gray-200 rounded-full px-3 py-1 text-sm font-bold absolute bottom-0 flex items-center gap-2">
+                <span>Add to Cart</span> <AiOutlineShoppingCart />
               </button>
             </div>
           </div>
