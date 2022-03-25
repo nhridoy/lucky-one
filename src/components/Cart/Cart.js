@@ -16,7 +16,7 @@ const Cart = ({ cart, setCart }) => {
     10
   ).toFixed(2); */
   const itemChooser = () => {
-    if (cart.length != 0) {
+    if (cart.length !== 0) {
       const randomProduct = cart[Math.floor(Math.random() * cart.length)];
       Swal.fire({
         title: "You choose",
@@ -40,7 +40,7 @@ const Cart = ({ cart, setCart }) => {
   };
 
   const cartClear = () => {
-    if (cart.length != 0) {
+    if (cart.length !== 0) {
       Swal.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
